@@ -58,7 +58,8 @@ function validateCart(cart) {
 
 // Challenge: Simulate an Order System
 
-const food = 'pizza';
+// const food = 'pizza'; //for there is food
+const food = undefined;  //for no food
 
 placeOrder(food)
 .then(function (food) {
