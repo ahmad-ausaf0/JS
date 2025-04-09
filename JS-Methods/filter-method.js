@@ -10,7 +10,10 @@ var adult = age.filter(function(element) {
     return element >= 18;
 });
 
-console.log(adult);
+// var adult2 = age.map(function(element) {
+//     return element >= 18;
+// });
+// console.log(adult2);
 
 // Challenge - ages btw 18 and 60
 

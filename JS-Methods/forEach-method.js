@@ -37,3 +37,6 @@ var fruits = ['kiwi', 'apple', 'banana', 'pear', 'grapes', 'lime', 'orange', 'le
 fruits.forEach((element, index) => {
     console.log(element + ' is in index ' + index);
 })
+
+var newarr = [...numbers]
+console.log(newarr);
