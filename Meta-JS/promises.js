@@ -55,3 +55,36 @@ function proceedToPayment(orderId) {
 function validateCart(cart) {
     return true;
 }
+
+// Challenge: Simulate an Order System
+
+const food = 'pizza';
+
+placeOrder(food)
+.then(function (food) {
+    console.log(`Your order for ${food} has been placed.`);
+    return food;
+})
+.catch(function (err) {
+    console.log(err.message);
+});
+
+
+function placeOrder(food) {
+    const promise = new Promise(function (resolve, reject) {
+
+        if(food) {
+           setTimeout(function () {
+                resolve(food);
+           }, 2000);
+        }
+        else {
+            const err = new Error('Error: No food item provided.');
+            reject(err);
+        }
+
+
+    });
+
+    return promise;
+}
