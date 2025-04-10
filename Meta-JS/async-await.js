@@ -11,7 +11,6 @@
 //     console.log(resData);
 // })
 
-
 // 2. returning a promise itself.
 // async function getData1() {
 //     return promise;
@@ -21,13 +20,11 @@
 //     resolve("Promise resolved value.")
 // });
 
-
 // const promiseData1 = getData1();
 // console.log(promiseData1);
 // promiseData1.then(function (resData) {
 //     console.log(resData);
 // })
-
 
 // async with await used to handle promises.
 // const promiseUsingAwait = new Promise((resolve, reject) => {
@@ -41,12 +38,11 @@
 
 // handlePromise();
 
-
 // Scenario 1: handle promise with normal .then() method -> JS engine will not wait for promise to be resolved.
 // const promise = new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         (resolve("Promise resolved value."))
-//     }, 5000);  
+//     }, 5000);
 // });
 
 // async function getData1() {
@@ -56,12 +52,11 @@
 
 // getData1();
 
-
 //Scenario 2: handle promise with await keyword -> JS engine was waiting for the promise to resolve.
 // const promiseUsingAwait = new Promise((resolve, reject) => {
 //     setTimeout(() => {
 //         (resolve("Promise resolved value."))
-//     }, 5000);  
+//     }, 5000);
 // })
 
 // async function handlePromise() {
@@ -75,21 +70,48 @@
 // using fetch() to get a promise data
 const API_URL = 'https://api.github.com/users/ahmad-ausaf0';
 
-async function getProfile(){
-
-    try {
-
-        const data = await fetch(API_URL);
-        const jsonData = await data.json();
-        console.log(jsonData);
-        
-    } catch (error) {
-        console.log(error);
-        
-    }
-
+async function getProfile() {
+  try {
+    const data = await fetch(API_URL);
+    const jsonData = await data.json();
+    console.log(jsonData);
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 getProfile();
+
 // using catch handling error ->
 // getProfile().catch((err) => console.log(err));
+
+// Deep dive async await
+const p1 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise Resolved Value 1!!');
+  }, 10000);
+});
+
+const p2 = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('Promise Resolved Value 2!!');
+  }, 5000);
+});
+
+async function handlePromise() {
+  console.log('Hello World !!');
+
+  const val = await p1;
+
+  console.log('Namaste Javascript 1');
+
+  console.log(val);
+
+  const val2 = await p2;
+
+  console.log('Namaste Javascript 2');
+
+  console.log(val2);
+}
+
+handlePromise();
